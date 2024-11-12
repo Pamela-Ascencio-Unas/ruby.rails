@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TingoLibrary</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="block bg-[#f4f6f8]">
+    <%= render 'shared/navbar' %>
+
+    <%= render 'shared/flash' %>
+
+    <main class="container mx-auto mt-2 px-5">
+      <%= yield %>
+    </main>
+
+    <%= render 'carts/cart', cart: @cart %>
+  </body>
+</html>
+
+<script>
+  function toggleSlideover() {
+    document.getElementById("slideover-container").classList.toggle("invisible");
+    document.getElementById("slideover-bg").classList.toggle("opacity-0");
+    document.getElementById("slideover-bg").classList.toggle("opacity-50");
+    document.getElementById("slideover").classList.toggle("translate-x-full");
+  }
+</script>
